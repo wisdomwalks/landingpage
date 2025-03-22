@@ -97,7 +97,7 @@ video {
 .contact-icons a {
     margin: 0 8px;
     display: inline-block;
-    padding: 50px;              /* Adjust padding as needed for a larger circle */
+    padding: 8px;              /* Adjust padding as needed for a larger circle */
     border-radius: 80%;        /* Makes the background circular */
 	background: #25a0da;
     transition: background 0.3s, transform 0.3s;
@@ -149,7 +149,10 @@ video {
     }
 
     .contact-icons img {
-		margin-top: 5px;
-        width: 35px; /* Smaller icons for mobile */
+		margin-top: 15px;
+        width: 25px; /* Smaller icons for mobile */
+		height: 25px;
+		border-radius: 10%;        /* Ensures the image itself is circular if it has transparent parts */
+		display: block;
     }
 }

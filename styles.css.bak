@@ -11,17 +11,17 @@ video {
 /* LOGO - Fixed at Top Center */
 .logo {
     position: absolute;
-    top: 20px;  /* Stay at the top */
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px; /* Adjust logo size */
+    width: 100px;
     height: auto;
 }
 
-/* Overlay text container (For the Main Title & Subtitle) */
+/* Overlay text container */
 .overlay {
     position: absolute;
-    top: 35%;
+    top: 40%; /* Moved slightly down */
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -33,39 +33,84 @@ video {
 .main-title {
     font-size: 3rem;
     font-weight: bold;
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 /* Subtitle */
 .subtitle {
     font-size: 2rem;
-    
+    margin-bottom: 10px;
+	color: white; /* Default fallback */
 }
 
-/* BOOK NOW BUTTON - Fixed at Bottom Center */
+/* Styling for "Sacred Journeys" */
+.subtitle span.sacred {
+    color: white;
+}
+
+/* Styling for "Seamless Comfort" */
+.subtitle span.comfort {
+    color: white;
+}
+
+/* BOOK NOW SECTION */
 .book-now-container {
     position: absolute;
-    bottom: 40px;  /* Stay 40px from the bottom */
+    bottom: 50px; /* Moved everything down */
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
 }
 
+/* Kashmir Group Tour Text */
+.tour-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px; /* Increased space between text and button */
+}
+
+/* Book Now Button */
 .btn {
     display: inline-block;
     font-size: 1.2rem;
     padding: 12px 24px;
     background: #ff6600;
-    color: white;
+    color: #25a0da;
     border-radius: 8px;
     text-decoration: none;
     transition: 0.3s;
+    margin-bottom: 10px; /* Adds space below the button */
 }
 
-/* RESPONSIVE DESIGN FOR MOBILE */
+/* Contact Icons */
+.contact-icons {
+    margin-top: 10px;
+}
+
+.contact-icons a {
+    margin: 0 8px;
+}
+
+.contact-icons img {
+    width: 35px; /* Adjust icon size */
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.contact-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
     .logo {
-        width: 80px; /* Smaller logo for mobile */
-        top: 15px;  /* Keep it at the top */
+        width: 80px;
+        top: 15px;
+    }
+
+    .overlay {
+        top: 42%; /* Adjusted for mobile */
     }
 
     .main-title {
@@ -76,8 +121,22 @@ video {
         font-size: 1.5rem;
     }
 
+    .book-now-container {
+        bottom: 30px; /* Lowering everything for mobile */
+    }
+
+    .tour-title {
+        font-size: 1.8rem;
+    }
+
     .btn {
         font-size: 1rem;
         padding: 10px 20px;
+        margin-bottom: 15px;
+    }
+
+    .contact-icons img {
+		margin-top: 5px;
+        width: 35px; /* Smaller icons for mobile */
     }
 }

@@ -56,7 +56,7 @@ video {
 /* BOOK NOW SECTION */
 .book-now-container {
     position: absolute;
-    bottom: 50px; /* Moved everything down */
+    bottom: 30px; /* Moved everything down */
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -67,20 +67,21 @@ video {
     font-size: 2rem;
     font-weight: bold;
     color: white;
-    margin-bottom: 20px; /* Increased space between text and button */
+    margin-bottom: 10px; /* Increased space between text and button */
 }
 
 /* Book Now Button */
 .btn {
     display: inline-block;
     font-size: 1.2rem;
-    padding: 12px 24px;
+    padding: 8px 24px;
     background: #ff6600;
     color: white;
     border-radius: 8px;
     text-decoration: none;
     transition: 0.3s;
     margin-bottom: 10px; /* Adds space below the button */
+	margin-top: 10px;
 }
 
 /* Hover effect for Book Now Button */
@@ -91,29 +92,64 @@ video {
 
 /* Contact Icons */
 .contact-icons {
-    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5px;
 }
 
 .contact-icons a {
-    margin: 0 8px;
-    display: inline-block;
-    padding: 50px;              /* Adjust padding as needed for a larger circle */
-    border-radius: 80%;        /* Makes the background circular */
-	background: #25a0da;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25a0da; /* Default background color */
+    border-radius: 50%; /* Makes it a circle */
     transition: background 0.3s, transform 0.3s;
 }
 
-.contact-icons a:hover {
-    background: #ff6600;       /* Hover background color */
-	transform: scale(1.1);   
+.contact-icons img {
+    width: 24px; /* Icon size */
+    height: 24px;
 }
 
-.contact-icons img {
-    width: 35px;               /* Adjust icon size */
-    height: 35px;              /* Force a square to properly round the corners */
-    border-radius: 10%;        /* Ensures the image itself is circular if it has transparent parts */
-    display: block;
+/* Hover effect */
+.contact-icons a:hover {
+    background-color: #ff6600; /* Change background color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
 }
+
+.phone-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 5px;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.phone-section img {
+    width: 20px; /* Increased size */
+    height: 20px;
+    background-color: #25a0da; /* Default background color */
+    border-radius: 50%; /* Circular shape */
+    padding: 8px; /* Adds space around the icon */
+}
+
+.phone-section a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 1.4rem; /* Increased font size for better visibility */
+}
+
+.phone-section a:hover {
+    color: #ff6600; /* Change color on hover */
+}
+
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
@@ -135,21 +171,34 @@ video {
     }
 
     .book-now-container {
-        bottom: 30px; /* Lowering everything for mobile */
+        bottom: 35px; /* Lowering everything for mobile */
     }
 
     .tour-title {
-        font-size: 1.8rem;
+        font-size: 1.2rem;
+		bottom: 5px;
     }
 
     .btn {
         font-size: 1rem;
-        padding: 10px 20px;
+        padding: 8px 20px;
         margin-bottom: 15px;
     }
 
     .contact-icons img {
-		margin-top: 5px;
-        width: 35px; /* Smaller icons for mobile */
+        width: 20px; /* Smaller icons for mobile */
+		height: 20px;
+		border-radius: 5%;        /* Ensures the image itself is circular if it has transparent parts */
+		display: block;
+    }
+	.phone-section img {
+        width: 20px; /* Reduced size for mobile */
+        height: 20px;
+        padding: 5px; /* Adjusted padding */
+		display: block;
+    }
+
+    .phone-section a {
+        font-size: 1rem; /* Slightly smaller font for mobile */
     }
 }

@@ -83,6 +83,12 @@ video {
     margin-bottom: 10px; /* Adds space below the button */
 }
 
+/* Hover effect for Book Now Button */
+.btn:hover {
+  background: #25a0da;
+  transform: scale(1.1);
+}
+
 /* Contact Icons */
 .contact-icons {
     margin-top: 10px;
@@ -90,16 +96,23 @@ video {
 
 .contact-icons a {
     margin: 0 8px;
+    display: inline-block;
+    padding: 8px;              /* Adjust padding as needed for a larger circle */
+    border-radius: 80%;        /* Makes the background circular */
+	background: #25a0da;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.contact-icons a:hover {
+    background: #ff6600;       /* Hover background color */
+	transform: scale(1.1);   
 }
 
 .contact-icons img {
-    width: 35px; /* Adjust icon size */
-    height: auto;
-    transition: transform 0.3s;
-}
-
-.contact-icons img:hover {
-    transform: scale(1.1);
+    width: 35px;               /* Adjust icon size */
+    height: 35px;              /* Force a square to properly round the corners */
+    border-radius: 10%;        /* Ensures the image itself is circular if it has transparent parts */
+    display: block;
 }
 
 /* RESPONSIVE DESIGN */

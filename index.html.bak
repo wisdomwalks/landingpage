@@ -8,8 +8,8 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <video autoplay loop muted>
-        <source src="vid.mp4" type="video/mp4">
+    <video autoplay loop muted playsinline>
+        <source src="https://drive.google.com/uc?export=stream&id=1EVNXaUnD_Tyk_F_8X8XHurlYT4AHy8a5" type="video/mp4">
     </video>
 
     <!-- Logo -->
@@ -30,14 +30,14 @@
 
         <!-- Contact Icons -->
         <div class="contact-icons">
-            <a href="https://wa.me/918168598382" target="_blank">
-                <img src="icons/whatsapp.png" alt="WhatsApp">
-            </a>
             <a href="tel:+918168598382">
-                <img src="icons/phone.png" alt="Phone">
+                <img src="phone.png" alt="Phone">
+            </a>
+			<a href="https://wa.me/918168598382" target="_blank">
+                <img src="whatsapp.png" alt="WhatsApp">
             </a>
             <a href="mailto:info@wisdomwalks.in">
-                <img src="icons/email.png" alt="Email">
+                <img src="email.png" alt="Email">
             </a>
         </div>
     </div>

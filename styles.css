@@ -97,13 +97,15 @@ video {
 .contact-icons a {
     margin: 0 8px;
     display: inline-block;
-    padding: 5px;              /* Adjust padding as needed for a larger circle */
-    border-radius: 100%;        /* Makes the background circular */
+    padding: 8px;              /* Adjust padding as needed for a larger circle */
+    border-radius: 80%;        /* Makes the background circular */
+	background: #25a0da;
     transition: background 0.3s, transform 0.3s;
 }
 
 .contact-icons a:hover {
-    background: #25a0da;       /* Hover background color */
+    background: #ff6600;       /* Hover background color */
+	transform: scale(1.1);   
 }
 
 .contact-icons img {

@@ -3,48 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel With Us</title>
+    <title>WW - Sacred Journeys, Seamless Comfort</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <video autoplay loop muted>
+    <video autoplay muted loop playsinline preload="auto" 
+		oncontextmenu="return false;" 
+		disablepictureinpicture 
+		controlslist="nodownload nofullscreen noremoteplayback">
         <source src="vid.mp4" type="video/mp4">
     </video>
 
+    <div class="video-overlay"></div>
+    
     <!-- Logo -->
     <img src="logo.png" alt="Logo" class="logo">
 
     <!-- Centered Overlay Content -->
     <div class="overlay">
-        <h2 class="main-title">50+ Citizens Specialized Travel</h2>
+        <h2 class="main-title">Specialized Tours for The Young at heart, 50 and beyond!</h2>
         <h1 class="subtitle">
-			<span class="sacred">Sacred Journeys</span>, <span class="comfort">Seamless Comfort</span>
-		</h1>
+            <span class="sacred">Sacred Journeys</span>, <span class="comfort">Seamless Comfort</span>
+        </h1>
     </div>
 
     <!-- Book Now Section -->
     <div class="book-now-container">
-        <div class="tour-title">Kashmir Group Tour</div>
-		<a href="https://wa.me/918168598382" target="_blank" class="btn">Book Now</a>
+        <button class="btn" id="openFormBtn">Contact Us</button>
 
         <!-- Contact Icons -->
         <div class="contact-icons">
-			<a href="https://wa.me/918168598382" target="_blank">
+            <a href="https://wa.me/918168598382?text=Hi%20there!" target="_blank">
                 <img src="whatsapp.png" alt="WhatsApp">
             </a>
             <a href="mailto:info@wisdomwalks.in">
                 <img src="email.png" alt="Email">
             </a>
+            <a href="https://www.instagram.com/wisdomwalks.in" target="_blank">
+                <img src="instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/people/Wisdom-Walks-Group-Tours-Travel-for-50-Age-Senior-Citizens/61575111924916/" target="_blank">
+                <img src="facebook.png" alt="Facebook">
+            </a>
         </div>
-		
-		<!-- Phone Section -->
-		<div class="phone-section">
-			<img src="phone-icon.png" alt="Phone">
-			<a href="tel:+918168598382">8168598382</a> |
-			<a href="tel:+918569896968">8569896968</a>
-		</div>
 
+        <!-- Phone Section -->
+        <div class="phone-section">
+            <img src="phone.png" alt="Phone">
+            <div class="phone-numbers">
+                <a href="tel:+918168598382">8168598382</a> |
+                <a href="tel:+918569896968">8569896968</a>
+            </div>
+        </div>
     </div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close-popup" id="closePopup">&times;</span>
+            <h2>Ready for an Exclusive Kashmir Gateway!</h2>
+            <h3 class="limited-text">Limited Spots Available</h3>
+            
+            <a href="https://drive.google.com/file/d/1Z_9ten2JuIQpY-CmgxSidH6Sf14fl28c/view?usp=sharing" target="_blank" class="btn btn-secondary">View Itinerary</a>
+            <div class="or-divider">or</div>
+            <a href="https://wa.me/918168598382?text=Hi%20there!" target="_blank" class="btn">Contact Us on WhatsApp</a>    
+        </div>
+    </div>
+	
+	<!-- Contact Form -->
+	<div class="form-popup" id="formPopup">
+		<div class="form-popup-content">
+			<span class="close-form-popup" id="closeFormPopup">&times;</span>
+			<h2>Have a question? Allow us to call you</h2>
+
+			<form id="contactForm">
+				<input type="text" name="name" placeholder="Your Name" required>
+				<input type="email" name="email" placeholder="Your Email" required>
+				<input type="tel" name="phone" placeholder="Phone Number" required>
+				<textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+				<button type="submit" class="btn">Submit</button>
+				<p id="formStatus" style="margin-top: 10px; font-weight: bold;"></p>
+			</form>
+		</div>
+	</div>
+	
+	<div class="footer-note">© 2025 Wisdom Walks. All rights reserved.</div>
+
+
+    <script>
+        // Show popup after 5.5 seconds
+        setTimeout(() => {
+            document.getElementById('popup').style.display = 'flex';
+        }, 5500);
+
+        // Close popup when clicking the close button
+        document.getElementById('closePopup').addEventListener('click', () => {
+            document.getElementById('popup').style.display = 'none';
+        });
+
+        // Close popup if user clicks outside the popup content
+        document.getElementById('popup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+    </script>
+	
+	<script>
+    const openFormBtn = document.getElementById('openFormBtn');
+    const formPopup = document.getElementById('formPopup');
+    const closeFormPopup = document.getElementById('closeFormPopup');
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    openFormBtn.addEventListener('click', () => {
+        formPopup.style.display = 'flex';
+    });
+
+    closeFormPopup.addEventListener('click', () => {
+        formPopup.style.display = 'none';
+    });
+
+    formPopup.addEventListener('click', (e) => {
+        if (e.target === formPopup) {
+            formPopup.style.display = 'none';
+        }
+    });
+
+    contactForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    formStatus.classList.remove('visible');
+    formStatus.textContent = "Sending...";
+    formStatus.classList.add('visible');
+
+    const formData = new FormData(contactForm);
+
+    try {
+        const response = await fetch("https://formspree.io/f/xnnplnrk", {
+            method: "POST",
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            formStatus.textContent = "🎉 Message sent successfully!";
+            contactForm.reset();
+
+            // Ensure the message is shown with animation
+            setTimeout(() => {
+                formStatus.classList.remove('visible'); // hide again before closing form
+            }, 1000);
+
+            // Fade out form after a short delay
+            setTimeout(() => {
+                const popupContent = document.querySelector('.form-popup-content');
+                popupContent.classList.add('fade-out');
+
+                setTimeout(() => {
+                    formPopup.style.display = 'none';
+                    popupContent.classList.remove('fade-out');
+                    formStatus.textContent = "";
+                }, 500); // match the fade-out animation time
+            }, 2000);
+
+        } else {
+            formStatus.textContent = "Oops! Something went wrong. Try again.";
+        }
+    } catch (error) {
+        formStatus.textContent = "Error sending message. Please try later.";
+    }
+});
+
+</script>
+
 </body>
 </html>

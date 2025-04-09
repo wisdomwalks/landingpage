@@ -6,6 +6,20 @@ video {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: -2;
+    background-color: black;
+    pointer-events: none;
+}
+
+/* Video Overlay */
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1;
 }
 
 /* LOGO - Fixed at Top Center */
@@ -16,58 +30,65 @@ video {
     transform: translateX(-50%);
     width: 100px;
     height: auto;
+    z-index: 1;
 }
 
 /* Overlay text container */
 .overlay {
     position: absolute;
-    top: 40%; /* Moved slightly down */
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
     width: 90%;
+    z-index: 1;
 }
 
 /* Main title */
 .main-title {
-    font-size: 3rem;
-    font-weight: bold;
+    font-size: 2.1rem;
+    font-weight: bold; 
     margin-bottom: 10px;
+    color: #fffbea;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+	text-align: center;
 }
 
 /* Subtitle */
 .subtitle {
-    font-size: 2rem;
+    font-size: 1.9rem;
     margin-bottom: 10px;
-	color: white; /* Default fallback */
+    color: #fffbea;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* Styling for "Sacred Journeys" */
 .subtitle span.sacred {
-    color: white;
+    color: #fffbea;
 }
 
 /* Styling for "Seamless Comfort" */
 .subtitle span.comfort {
-    color: white;
+    color: #fffbea;
 }
 
 /* BOOK NOW SECTION */
 .book-now-container {
     position: absolute;
-    bottom: 30px; /* Moved everything down */
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
+    z-index: 1;
 }
 
 /* Kashmir Group Tour Text */
 .tour-title {
     font-size: 2rem;
     font-weight: bold;
-    color: white;
-    margin-bottom: 10px; /* Increased space between text and button */
+    color: #fffbea;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* Book Now Button */
@@ -80,14 +101,35 @@ video {
     border-radius: 8px;
     text-decoration: none;
     transition: 0.3s;
-    margin-bottom: 10px; /* Adds space below the button */
-	margin-top: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    animation: pulse 2.5s ease-in-out infinite;
+	cursor: pointer; /* Add this line */
+	outline: none;
+    border: none;
 }
 
-/* Hover effect for Book Now Button */
+/* Button Hover Effect */
 .btn:hover {
-  background: #25a0da;
-  transform: scale(1.1);
+    background: #25a0da;
+    transform: scale(1.2);
+	box-shadow: none; /* Removes shadow on hover */
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: none;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
 }
 
 /* Contact Icons */
@@ -104,22 +146,21 @@ video {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #25a0da; /* Default background color */
-    border-radius: 50%; /* Makes it a circle */
+    border-radius: 50%;
     transition: background 0.3s, transform 0.3s;
 }
 
 .contact-icons img {
-    width: 24px; /* Icon size */
-    height: 24px;
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
 }
 
-/* Hover effect */
 .contact-icons a:hover {
-    background-color: #ff6600; /* Change background color on hover */
-    transform: scale(1.1); /* Slightly enlarge on hover */
+    transform: scale(1.25);
 }
 
+/* Phone Section */
 .phone-section {
     display: flex;
     align-items: center;
@@ -128,14 +169,14 @@ video {
     margin-top: 5px;
     font-size: 1.2rem;
     color: white;
+    transition: transform 0.3s ease;
 }
 
 .phone-section img {
-    width: 20px; /* Increased size */
-    height: 20px;
-    background-color: #25a0da; /* Default background color */
-    border-radius: 50%; /* Circular shape */
-    padding: 8px; /* Adds space around the icon */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 8px;
 }
 
 .phone-section a {
@@ -143,13 +184,19 @@ video {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
-    font-size: 1.4rem; /* Increased font size for better visibility */
+    font-size: 1.3rem;
 }
 
 .phone-section a:hover {
-    color: #ff6600; /* Change color on hover */
+    color: #ff6600;
+    transform: scale(1.05);
 }
 
+.phone-numbers {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
@@ -159,46 +206,377 @@ video {
     }
 
     .overlay {
-        top: 42%; /* Adjusted for mobile */
+        top: 42%;
     }
 
     .main-title {
-        font-size: 2rem;
+        font-size: 1.55rem;
     }
 
     .subtitle {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .book-now-container {
-        bottom: 35px; /* Lowering everything for mobile */
+        bottom: 25px;
     }
 
     .tour-title {
         font-size: 1.2rem;
-		bottom: 5px;
+        bottom: 5px;
     }
 
     .btn {
-        font-size: 1rem;
+        font-size: 1.1rem;
         padding: 8px 20px;
         margin-bottom: 15px;
     }
 
     .contact-icons img {
-        width: 20px; /* Smaller icons for mobile */
-		height: 20px;
-		border-radius: 5%;        /* Ensures the image itself is circular if it has transparent parts */
-		display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 5%;
+        display: block;
     }
-	.phone-section img {
-        width: 20px; /* Reduced size for mobile */
-        height: 20px;
-        padding: 5px; /* Adjusted padding */
-		display: block;
+
+    .phone-section img {
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        display: block;
     }
 
     .phone-section a {
-        font-size: 1rem; /* Slightly smaller font for mobile */
+        font-size: 1.2rem;
+    }
+	
+	.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* shows via JS */
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* backdrop */
+    z-index: 999;
+	}
+
+	.popup-content {
+		background: #fff;
+		padding: 30px 20px;
+		border-radius: 15px;
+		width: 90%;
+		max-width: 400px;
+		box-sizing: border-box;
+		text-align: center;
+	}
+
+}
+
+/* Popup Container */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Popup Box */	
+.popup-content {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    max-width: 380px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.6s ease-in-out;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */	
+}
+
+.close-popup {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-popup:hover {
+    color: #000;
+}
+
+
+/* Responsive Popup Text */
+.popup-content h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.popup-content p {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+
+.popup-content .btn {
+    background-color: #25a0da;
+    color: white;
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.popup-content .btn:hover {
+    background-color: #1c8cc7;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(37, 160, 218, 0.4);
+}
+
+
+/* Secondary button style */
+.btn-secondary {
+	background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    font-weight: 500;
+}
+
+.btn-secondary:hover {
+    background-color: #e2e2e2;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.or-divider {
+    margin: 8px 0;
+    font-weight: 500;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.limited-text {
+    color: #FF474D;
+    font-weight: bold;
+}
+
+/* NEW Form Popup Styling */
+.form-popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-dark background */
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.form-popup-content {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 30px 24px;
+    border-radius: 18px;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: popupFadeIn 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+/* Close Button */
+.close-form-popup {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #444;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.form-popup-content h2 {
+  margin-bottom: 20px;
+  font-size: 1.7rem;
+  color: #222;
+}
+
+.form-popup-content input,
+.form-popup-content textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-popup-content button {
+	background-color: #25a0da;
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.close-form-popup:hover {
+  color: #000;
+}
+
+.form-popup-content button:hover {
+    background-color: #1c8cc7;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
+
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popupFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+.form-popup-content {
+    animation: fadeIn 0.3s ease-out;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Add this class when fading out */
+.form-popup-content.fade-out {
+    animation: fadeIn 0.4s forwards;
+}
+
+/* Optional: animate the success message */
+#formStatus {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    font-size: 1rem;
+    color: green;
+    margin-top: 10px;
+}
+
+#formStatus.visible {
+    opacity: 1;
+}
+
+@media (max-width: 480px) {
+    .form-popup-content {
+        width: 80%;
+        height: 80%;
+        border-radius: 16px;
+        max-width: none;
+        padding: 40px 20px;
+        justify-content: center;
+    }
+
+    .form-popup-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-popup-content button {
+        width: 80%;
+        padding: 12px;
+    }
+
+    .close-form-popup {
+        font-size: 2rem;
+        top: 16px;
+        right: 20px;
+    }
+}
+
+.footer-note {
+    position: fixed;
+    bottom: 12px;
+    left: 50.5%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.75);
+    z-index: 999;
+    text-align: center;
+    pointer-events: none;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    width: max-content;
+    padding: 2px 10px;
+}
+
+@media (max-width: 768px) {
+    .footer-note {
+        font-size: 0.6rem;
+        bottom: 8px;
+		left: 50.5%;
+    }
+}
+
+video {
+    -webkit-touch-callout: none; /* Prevents iOS context menu */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none; /* Prevents interaction */
+}
+
+

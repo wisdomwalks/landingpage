@@ -722,3 +722,95 @@ input:focus, textarea:focus, button:focus {
 }
 
 
+video {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+
+/* --- Popup Styling Enhancements --- */
+
+
+.tour-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 20px 12px 45px; /* space on left for hand */
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #2c3e50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.tour-button:hover {
+    background-color: #1a242f;
+}
+
+.tour-button .hand-icon {
+    position: absolute;
+    left: 1px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg);
+    width: 18px;
+    height: auto;
+    animation: bounce 1.3s infinite;
+    pointer-events: none;
+}
+
+
+/* Bounce animation for the hand */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(-50%) rotate(-15deg) translateY(0);
+    }
+    50% {
+        transform: translateY(-50%) rotate(-15deg) translateY(-5px);
+    }
+}
+
+.limited-text {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #d40000;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+	.tour-button {
+        font-size: 14px;
+        padding: 10px 16px 10px 42px;
+        width: 100%;
+    }
+
+    .tour-button .hand-icon {
+        width: 16px;
+        left: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjust popup size */
+    .popup-content {
+        max-width: 320px;
+        height: auto;
+        padding: 24px 22px;
+    }
+
+    /* Adjust inner buttons */
+    .popup-content .btn {
+        font-size: 0.95rem;
+        padding: 6px 10px;
+        margin: 6px 4px;
+        width: 100%;
+        max-width: 160px; /* ensures NE & South India buttons stay inside */
+        white-space: normal;
+    }
+

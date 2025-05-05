@@ -792,16 +792,16 @@ video {
 
     .tour-button .hand-icon {
         width: 16px;
-        left: 12px;
+        left: 10px;
     }
 }
 
 @media (max-width: 768px) {
     /* Adjust popup size */
     .popup-content {
-        max-width: 300px;
+        max-width: 320px;
         height: auto;
-        padding: 24px 20px;
+        padding: 24px 22px;
     }
 
     /* Adjust inner buttons */

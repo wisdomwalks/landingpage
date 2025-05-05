@@ -792,7 +792,7 @@ video {
 
     .tour-button .hand-icon {
         width: 16px;
-        left: 12px;
+        left: 10px;
     }
 }
 
